@@ -6,11 +6,11 @@ This project implements an audio watermarking app for Deepfake and AI generated 
 
 ```bash
 Scripts/
-├── backend/                 # Backend services and logic
-│   ├── __init__.py          # Marks backend as a Python package
+├── backend/                
+│   ├── __init__.py          
 │   ├── watermark_audio.py   # Handles audio watermark embedding and decoding
-├── frontend/                # Frontend UI code (Streamlit interface)
-├── __init__.py              # Marks Scripts as a Python package
+├── frontend/                # Frontend UI code
+├── __init__.py              
 └── main.py                  # Entry point for running the application
 ```
 
@@ -19,8 +19,8 @@ Scripts/
 
 ## Setup Instructions
 
-1. **Install required packages**
-A list of required packages can be found in requirements.txt
+1. **Install required packages.**
+     A list of required packages can be found in requirements.txt
 
 ## Running the app
 1. **In terminal change the directory to the scripts folder in the project**
