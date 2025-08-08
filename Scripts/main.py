@@ -5,12 +5,6 @@ import wavmark
 import soundfile
 import io
 
-def read_uploaded_audio(uploaded_file):
-    audio_bytes = uploaded_file.read()
-    audio_buffer = io.BytesIO(audio_bytes)
-    signal, sample_rate = soundfile.read(audio_buffer)
-    return signal, sample_rate
-
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 model = wavmark.load_model().to(device)
 
