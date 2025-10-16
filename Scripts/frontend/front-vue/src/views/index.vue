@@ -35,7 +35,7 @@ export default {
   components: { NavBar },
   data() {
     return {
-      logo: require('@/assets/placeholder-logo.png')
+      logo: require('@/assets/logo.png')
     };
   }
 };
