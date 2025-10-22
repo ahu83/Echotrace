@@ -31,15 +31,6 @@
             <el-option label="Success" value="SUCCESS"/>
             <el-option label="Failed" value="FAILED"/>
           </el-select>
-          <el-date-picker
-              v-model="q.range"
-              type="daterange"
-              start-placeholder="Start"
-              end-placeholder="End"
-              range-separator="-"
-              unlink-panels
-              style="width:320px"
-          />
           <el-button type="primary" @click="applyFilters">Search</el-button>
           <el-button @click="reset">Reset</el-button>
         </div>
@@ -53,9 +44,6 @@
           </el-table-column>
           <el-table-column prop="title" label="Title" min-width="220"/>
           <el-table-column prop="model" label="Model" min-width="160"/>
-          <el-table-column label="Params" min-width="200">
-            <template slot-scope="s">{{ s.row.params || '-' }}</template>
-          </el-table-column>
           <el-table-column label="Status" width="140">
             <template slot-scope="s">
               <el-tag :type="statusType(s.row.status)">{{ s.row.status }}</el-tag>
@@ -143,7 +131,6 @@ export default {
           type: 'tts',
           title: 'Promo-line 001',
           model: 'resnet18-vocoder',
-          params: 'voice=female,en-US',
           status: 'SUCCESS',
           createdAt: '2025-03-12T10:15:00Z',
           url: '/mock/audio1.mp3'
@@ -153,7 +140,6 @@ export default {
           type: 'detect',
           title: 'Call-sample 17',
           model: 'df-detector-x',
-          params: 'thr=0.62',
           status: 'SUCCESS',
           createdAt: '2025-03-12T09:40:00Z'
         },
@@ -162,7 +148,6 @@ export default {
           type: 'wm',
           title: 'Embed watermark',
           model: 'wm-echo-1',
-          params: 'strength=0.2',
           status: 'PROCESSING',
           createdAt: '2025-03-11T16:22:00Z'
         },
@@ -171,7 +156,6 @@ export default {
           type: 'tts',
           title: 'Narration-A',
           model: 'effnet-b0',
-          params: 'voice=male,en-GB',
           status: 'FAILED',
           createdAt: '2025-03-10T08:02:00Z'
         }
@@ -339,4 +323,135 @@ $text: #E6E8EB;
   padding: 12px;
   border-radius: 8px;
 }
+
+
+$bg: #0A0A0A;
+$panel: #000;
+$text: #E6E8EB;
+$muted: #AAB2C0;
+$border: rgba(255, 255, 255, .08);
+
+.filters {
+  background: #0F0F0F;
+  border: 1px solid $border;
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin: 6px 6px 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .35);
+}
+
+::v-deep .el-input__inner,
+::v-deep .el-range-editor.el-input__inner,
+::v-deep .el-date-editor .el-input__inner {
+  background: rgba(19, 19, 22, .8);
+  border: 1px solid rgba(255, 255, 255, .14);
+  color: $text;
+}
+
+::v-deep .el-input__inner::placeholder,
+::v-deep .el-range-editor .el-range-input::placeholder {
+  color: rgba(230, 232, 235, .55);
+}
+
+::v-deep .el-input__icon {
+  color: $muted;
+}
+
+::v-deep .el-select-dropdown,
+::v-deep .el-picker-panel {
+  background: #0F0F10;
+  border: 1px solid $border;
+  color: $text;
+}
+
+::v-deep .el-select-dropdown__item.hover,
+::v-deep .el-select-dropdown__item.selected {
+  background: rgba(255, 255, 255, .06);
+  color: #fff;
+}
+
+::v-deep .el-table {
+  background: transparent;
+  color: $text;
+}
+
+::v-deep .el-table th,
+::v-deep .el-table tr {
+  background: transparent;
+}
+
+::v-deep .el-table__header th {
+  background: rgba(255, 255, 255, .04);
+  color: #E6E8EB;
+  border-bottom: 1px solid $border;
+}
+
+::v-deep .el-table td,
+::v-deep .el-table th.is-leaf {
+  border-bottom: 1px solid rgba(255, 255, 255, .06);
+}
+
+::v-deep .el-table__body tr:hover > td {
+  background: rgba(255, 255, 255, .04) !important;
+}
+
+::v-deep .el-table__empty-block {
+  background: transparent;
+  color: $muted;
+}
+
+::v-deep .el-tag {
+  background: rgba(255, 255, 255, .08);
+  border: none;
+  color: #E6E8EB;
+}
+
+::v-deep .el-tag--success {
+  background: rgba(16, 185, 129, .18);
+  color: #A7F3D0;
+}
+
+::v-deep .el-tag--warning {
+  background: rgba(234, 179, 8, .20);
+  color: #FDE68A;
+}
+
+::v-deep .el-tag--danger {
+  background: rgba(239, 68, 68, .22);
+  color: #FCA5A5;
+}
+
+::v-deep .el-pagination button,
+::v-deep .el-pagination .el-pager li {
+  background: transparent;
+  color: $text;
+}
+
+::v-deep .el-pagination .el-pager li.active {
+  background: rgba(255, 255, 255, .08);
+}
+
+::v-deep .el-dialog {
+  background: #0F0F0F;
+  color: $text;
+  border: 1px solid $border;
+}
+
+::v-deep .el-dialog__header {
+  border-bottom: 1px solid $border;
+}
+
+::v-deep .el-dialog__title {
+  color: #fff;
+}
+
+.json {
+  background: #111;
+  color: $text;
+}
+
+.foot {
+  background: transparent;
+}
+
 </style>
