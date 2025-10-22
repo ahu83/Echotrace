@@ -33,6 +33,16 @@
         </span>
         <span class="label">Text to speech</span>
       </button>
+
+      <button class="item" @click="$router.push('/history')">
+        <span class="icon">
+          <svg viewBox="0 0 24 24">
+            <path fill="#fff" d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm1 11h4v-2h-3V7h-2v6z"/>
+          </svg>
+        </span>
+        <span class="label">History</span>
+      </button>
+
     </nav>
 
     <button class="signout" @click="$emit('signout')">

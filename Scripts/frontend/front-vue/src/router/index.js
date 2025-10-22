@@ -11,6 +11,7 @@ const index = () => import('@/views/index.vue');
 const login  = () => import('@/views/login.vue');
 const Forgot = () => import('@/views/Forgot.vue');
 const ForgotSent = () => import('@/views/ForgotSent.vue');
+const AiHistory = () => import('@/views/AiHistory.vue');
 
 const routes = [
     {
@@ -32,6 +33,11 @@ const routes = [
         path: '/forgotSent',
         name: 'forgotSent',
         component: ForgotSent
+    },
+    {
+        path: '/history',
+        name: 'AiHistory',
+        component: AiHistory
     },
     {
         path: '/home',
