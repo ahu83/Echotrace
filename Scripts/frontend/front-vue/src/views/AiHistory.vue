@@ -37,19 +37,13 @@
 
         <el-table :data="pageItems" @selection-change="sels = $event" height="480" style="width:100%">
           <el-table-column type="selection" width="45"/>
-          <el-table-column label="Type" width="140">
+          <el-table-column label="Type" width="240">
             <template slot-scope="s">
               <el-tag size="small" :type="typeTagType(s.row.type)">{{ typeLabel(s.row.type) }}</el-tag>
             </template>
           </el-table-column>
-          <el-table-column prop="title" label="Title" min-width="220"/>
-          <el-table-column prop="model" label="Model" min-width="160"/>
-          <el-table-column label="Status" width="140">
-            <template slot-scope="s">
-              <el-tag :type="statusType(s.row.status)">{{ s.row.status }}</el-tag>
-            </template>
-          </el-table-column>
-          <el-table-column label="Created" width="180">
+          <el-table-column prop="title" label="Title" min-width="240"/>
+          <el-table-column label="Created" width="240">
             <template slot-scope="s">{{ formatDate(s.row.createdAt) }}</template>
           </el-table-column>
           <el-table-column label="Actions" width="220" fixed="right">
@@ -60,8 +54,6 @@
             </template>
           </el-table-column>
         </el-table>
-
-
       </div>
     </section>
 
@@ -130,8 +122,6 @@ export default {
           id: 'H24001',
           type: 'tts',
           title: 'Promo-line 001',
-          model: 'resnet18-vocoder',
-          status: 'SUCCESS',
           createdAt: '2025-03-12T10:15:00Z',
           url: '/mock/audio1.mp3'
         },
@@ -139,24 +129,18 @@ export default {
           id: 'H24002',
           type: 'detect',
           title: 'Call-sample 17',
-          model: 'df-detector-x',
-          status: 'SUCCESS',
           createdAt: '2025-03-12T09:40:00Z'
         },
         {
           id: 'H24003',
           type: 'wm',
           title: 'Embed watermark',
-          model: 'wm-echo-1',
-          status: 'PROCESSING',
           createdAt: '2025-03-11T16:22:00Z'
         },
         {
           id: 'H24004',
           type: 'tts',
           title: 'Narration-A',
-          model: 'effnet-b0',
-          status: 'FAILED',
           createdAt: '2025-03-10T08:02:00Z'
         }
       ];
